@@ -1,0 +1,46 @@
+{% extends 'base_list.html' %}
+{% load static %}
+{% block inner_title %}
+    StudyGuide - Блог
+{% endblock %}
+
+{% block inner_post %}
+    <h1>Результаты поиска</h1>
+    <ul>
+        {% for post in post_list %}
+            <li>
+                <h4><a class="d-inline-block" href="{% url 'post_detail' pk=post.pk %}" style="color: black;">{{ post.title }}</a></h4>
+                <p>{{ post.text | truncatechars:250 }}</p>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block inner_search %}
+    <aside class="single_sidebar_widget search_widget">
+        <h4 class="widget_title">Поиск по блогу</h4>
+        <form action="{% url 'search_post' %}" method="get">
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <input name="q" type="text" class="form-control" placeholder="Ключевое слово">
+                    <div class="input-group-append">
+                        <button class="btn" type="button"><i class="ti-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="button rounded-0 primary-bg text-white w-100" type="submit">Искать</button>
+        </form>
+    </aside>
+{% endblock %}
+
+{% block inner_category %}
+    {% for category in categories %}
+        <li>
+            <a href="{{ category.get_absolute_url }}" class="d-flex">
+                <p>{{ category.name }}</p>
+            </a>
+        </li>
+    {% endfor %}
+{% endblock %}
+

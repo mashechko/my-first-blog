@@ -1,0 +1,60 @@
+{% extends 'blog/../base.html' %}
+{% load static %}
+{% block title %}
+    StudyGuide - Блог
+{% endblock %}
+{% block content %}
+ <!--================Service Area Start =================-->
+  <section class="section-margin">
+  <div class="container">
+      <div class="section-intro text-center pb-90px">
+          <img class="section-intro-img" src="{% static 'img/home/section-icon.png' %}" alt="">
+          <h2>Разделы</h2>
+          <p>Собираем полезные материалы, интересные видео и последние новости</p>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" href="/blog">
+            <a href="/blog" style="color: #888888">
+                <div class="service-card text-center">
+                    <div class="service-card-img">
+                        <img class="img-fluid" src="{% static 'img/home/blog.png' %}" style="max-height: 240px" alt="">
+                    </div>
+                    <div class="service-card-body">
+                        <h3>Блог</h3>
+                        <p>Полезные статьи и материалы для учебы</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0" href="/ted">
+              <a href="/ted" style="color: #888888">
+                  <div class="service-card text-center">
+                      <div class="service-card-img">
+                          <img class="img-fluid" src="{% static 'img/home/ted.png' %}" style="max-height: 240px" alt="">
+                      </div>
+                      <div class="service-card-body">
+                          <h3>Видео TED</h3>
+                          <p>Собираем все видеоматериалы TED на русском языке</p>
+                      </div>
+                  </div>
+              </a>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+              <a href="/news" style="color: #888888">
+                  <div class="service-card text-center">
+                      <div class="service-card-img">
+                          <img class="img-fluid" src="{% static 'img/home/news.png' %}" style="max-height: 240px" alt="">
+                      </div>
+                      <div class="service-card-body">
+                          <h3>Новости</h3>
+                          <p>Последние события в Беларуси и мире из разных источников</p>
+                      </div>
+                  </div>
+              </a>
+          </div>
+      </div>
+  </div>
+  </section>
+  <!--================Service Area End =================-->
+{% endblock %}
+

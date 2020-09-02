@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq:management
+    environment:
+      - RABBITMQ_DEFAULT_USER=rabbitmq
+      - RABBITMQ_DEFAULT_PASS=rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - proxynet
+
+networks:
+  proxynet:
+    name: custom_network

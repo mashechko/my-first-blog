@@ -1,0 +1,51 @@
+{% extends 'base_list.html' %}
+{% load static %}
+{% block inner_title %}
+    StudyGuide - {{ category.name }}
+{% endblock %}
+
+{% block inner_post %}
+    {% for post in posts %}
+        <article class="blog_item">
+            <div class="blog_item_img">
+                <img class="card-img rounded-0" src="{{ post.image.url }}" alt="">
+                <a href="#" class="blog_item_date">
+                    <h3>{{ post.published_date.day }}</h3>
+                    <p>{{ post.published_date | date:'M'}}</p>
+                </a>
+            </div>
+            <div class="blog_details">
+                <h2><a class="d-inline-block" href="{% url 'post_detail' pk=post.pk %}" style="color: black">
+                    {{ post.title }}</a></h2>
+                <p>опубликовано: {{ post.published_date }}</p>
+                <p>{{ post.text|linebreaksbr|truncatechars:250  }}</p>
+                <ul class="blog-info-link">
+                    <li><a href="#"><i class="far fa-user"></i>{{ post.category }}</a></li>
+                    <li><a href="#"><i class="far fa-comments"></i> 03 Comments</a></li>
+                </ul>
+            </div>
+        </article>
+    {% endfor %}
+    {% include "blog/pagination.html" with page=posts %}
+{% endblock %}
+
+{% block inner_search %}
+    <aside class="single_sidebar_widget search_widget">
+        <h4 class="widget_title">Поиск по блогу</h4>
+        <form action="{% url 'search_post' %}" method="get">
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <input name="q" type="text" class="form-control" placeholder="Ключевое слово">
+                    <div class="input-group-append">
+                        <button class="btn" type="button"><i class="ti-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="button rounded-0 primary-bg text-white w-100" type="submit">Искать</button>
+        </form>
+    </aside>
+{% endblock %}
+
+
+
+

@@ -1,0 +1,58 @@
+{% extends 'blog/../base.html' %}
+
+{% block title %}
+    StudyGuide - Добавить запись
+{% endblock %}
+
+{% block content %}
+    <div class="search-wrapper" style="width: 100%">
+        <h1 style="margin-bottom: 30px; margin-top: -20px">Добавить запись в блог</h1>
+        <form enctype="multipart/form-data" method="POST" class="search-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group" style="justify-content: left">
+                <h5>Название статьи</h5>
+                <div class="input-group">
+                    {{ form.title }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.title.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Текст статьи</h5>
+                <div class="input-group">
+                    {{ form.text }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.text.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Категория</h5>
+                <div class="input-group">
+                    {{ form.category }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.category.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <h5>Изображение</h5>
+                <div class="input-group">
+                    {{ form.image }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.image.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="button border-0 mt-3">Добавить</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

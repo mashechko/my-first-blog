@@ -1,0 +1,26 @@
+.carousel{
+    width: 80%;
+    left: 10%;
+}
+
+.carousel:hover{
+    opacity: 80%;
+}
+
+.link{
+    display: inline-block;
+    color: black;
+    font-size: 25px;
+;
+}
+.linker{
+    float: inside;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    text-align-last: justify;
+}
+
+.card-img{
+    max-height: 500px;
+}
