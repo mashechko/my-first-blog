@@ -17,10 +17,8 @@ class RegistrationView(CreateView):
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
-        print("test")
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request, 'Вы успешно зарегистрировались  ')
-            return redirect
         return render(request, self.template_name, {'form': form})
