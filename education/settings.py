@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'blog.apps.BlogConfig',
     'user',
     'accounts.apps.AccountsConfig',
-    'quickstart',
     'rest_framework',
 ]
 

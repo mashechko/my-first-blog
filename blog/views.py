@@ -8,7 +8,7 @@ from django.db.models import Q
 
 from .models import Post, News, Category
 from .forms import PostForm
-from .parsing import parsing_tut_by
+from .parsing import parsing_tut_by, parsing_onliner
 
 
 # Главная страница
@@ -21,6 +21,7 @@ class MainPage(View):
 class NewsList(View):
     def get(self, request):
         parsing_tut_by()
+        parsing_onliner()
         object_list = News.objects.all().order_by('-date')
         paginator = Paginator(object_list, 10)
         page = request.GET.get('page')

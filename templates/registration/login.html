@@ -1,10 +1,43 @@
-{% extends 'base.html' %} &nbsp;
+{% extends 'blog/../base.html' %}
+
+{% block title %}
+    StudyGuide - Вход
+{% endblock %}
 
 {% block content %}
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Log In</button>
-</form>
-{% endblock content %}
+    <div class="search-wrapper" style="width: 100%">
+        <h1 style="margin-bottom: 30px; margin-top: -20px">Войти</h1>
+        <form enctype="multipart/form-data" method="POST" class="search-form">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group" style="justify-content: left">
+                <h5>Логин</h5>
+                <div class="input-group">
+                    {{ form.username }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.username.errors }}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <h5>Пароль</h5>
+                <div class="input-group">
+                    {{ form.password }}
+                </div>
+                <div class="invalid-feedback">
+                    {{ form.password1.errors }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="button border-0 mt-3">Войти</button>
+            </div>
+
+            <div class="form-group">
+                <a href="/accounts/registration">Еще нет аккаунта? Зарегистрироваться</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -44,8 +44,7 @@ class News(models.Model):
     date = models.DateTimeField(verbose_name='Дата', null=True)
     description = models.TextField(verbose_name='Описание статьи', null=True)
     category = models.CharField(max_length=100, verbose_name='Категория', null=True)
-    author_name = models.CharField(max_length=100, verbose_name='Автор', null=True)
-    author_uri = models.URLField(verbose_name='Ссылка автора', null=True)
+    author = models.CharField(max_length=100, verbose_name='Сайт-автор', null=True)
 
     def __str__(self):
         return self.title

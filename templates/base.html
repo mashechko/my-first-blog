@@ -48,7 +48,11 @@
               <li class="nav-item"><a class="nav-link" href="/about">О нас</a></li>
             </ul>
             <div class="nav-right text-center text-lg-right py-4 py-lg-0">
-              <a class="button" href="/accounts/registration/">Зарегистрироваться</a>
+                {% if user.is_authenticated %}
+                    <a class="button" href="{% url 'logout' %}">Личный кабинет</a>
+                {% else %}
+                    <a class="button" href="{% url 'login' %}">Вход/регистрация</a>
+                {% endif %}
             </div>
           </div>
         </div>
@@ -59,13 +63,6 @@
 <section class="section-padding magic-ball magic-ball-sm magic-ball-about">
     <div class="container">
       <div class="row">
-{#          {% if user.is_authenticated %}#}
-{#              <p>Hi {{ user.username }}!</p>#}
-{#              <p><a href="{% url 'logout' %}">Log out</a></p>#}
-{#          {% else %}#}
-{#              <p>You are not logged in.</p>#}
-{#              <a href="{% url 'login' %}">Log In</a>#}
-{#          {% endif %}#}
           {% block content %}
           {% endblock %}
       </div>

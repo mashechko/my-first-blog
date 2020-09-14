@@ -7,11 +7,11 @@ class PostAdmin(admin.ModelAdmin):
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author_name', 'date', 'link')
-    search_fields = ('title', 'author_name')
+    list_display = ('title', 'author', 'date', 'link')
+    search_fields = ('title', )
 
 
-class CstegoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('name', )
     search_fields = ('name', )
@@ -19,5 +19,5 @@ class CstegoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(News, NewsAdmin)
-admin.site.register(Category, CstegoryAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Author)
